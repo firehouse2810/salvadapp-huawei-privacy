@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SalvadApp! — Privacy e Termini (Huawei AppGallery)</title>
-<meta name="description" content="Informativa sulla Privacy e Termini e Condizioni di SalvadApp! per la versione distribuita su Huawei AppGallery.">
-<link rel="icon" type="image/png" href="logo.png">
+<title>SalvadApp! — Il salvadanaio, piegato a modo tuo</title>
+<meta name="description" content="SalvadApp! è un'app per organizzare i tuoi obiettivi di risparmio, come un salvadanaio digitale. Nessun dato lascia il tuo telefono, salvo tua scelta.">
+<link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Stessa palette blu metallizzata del sito principale SalvadApp!,
-       per coerenza di marchio tra le due proprietà web. */
+    /* Palette Blu metallizzata di SalvadApp!, stessi valori esatti di
+       AppAccent.BLU (light/mid/dark) e Silver/SilverDim in Color.kt */
     --blu-light: #4A7BA6;
     --blu-mid: #1D3E5C;
     --blu-dark: #11263B;
@@ -27,10 +27,11 @@
     --crease: rgba(207,209,216,0.3);
     --ink-soft: #C9D6DF;
     --radius: 3px;
-    --max-w: 720px;
+    --max-w: 760px;
   }
 
   * { box-sizing: border-box; }
+
   html { scroll-behavior: smooth; }
 
   body {
@@ -43,6 +44,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Sottile texture, versione scura */
   body::before {
     content: "";
     position: fixed;
@@ -62,47 +64,6 @@
     z-index: 1;
   }
 
-  header { padding: 28px 0 0; }
-  .nav-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .brandmark {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 22px;
-  }
-  .brandmark img { width: 38px; height: 38px; }
-
-  .lang-switch { display: flex; gap: 2px; }
-  .lang-switch button {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    border: 1px solid var(--crease);
-    background: var(--paper-raised);
-    color: var(--ink-soft);
-    padding: 7px 11px 6px;
-    cursor: pointer;
-    position: relative;
-  }
-  .lang-switch button:first-child { border-radius: var(--radius) 0 0 var(--radius); }
-  .lang-switch button:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
-  .lang-switch button + button { border-left: none; }
-  .lang-switch button[aria-pressed="true"] {
-    color: var(--paper-raised);
-    background: var(--ink);
-    border-color: var(--ink);
-  }
-  .lang-switch button:hover:not([aria-pressed="true"]) {
-    border-color: var(--petrol);
-    color: var(--petrol);
-  }
-
   .eyebrow {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12.5px;
@@ -112,43 +73,7 @@
     font-weight: 500;
   }
 
-  .hero { padding: 48px 0 8px; }
-  .hero h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: clamp(28px, 5vw, 38px);
-    line-height: 1.1;
-    margin: 14px 0 14px;
-  }
-  .hero p.lede {
-    font-size: 16.5px;
-    color: var(--ink-soft);
-    max-width: 58ch;
-    margin: 0;
-  }
-
-  .badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    border: 1px solid var(--crease);
-    background: var(--paper-raised);
-    padding: 6px 10px;
-    border-radius: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 20px;
-  }
-  .badge::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--petrol);
-    display: inline-block;
-  }
-
+  /* ---------- Divisore firma ---------- */
   .fold-divider {
     position: relative;
     height: 46px;
@@ -164,21 +89,228 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--crease) 12%, var(--crease) 88%, transparent);
   }
+  .fold-divider::after {
+    content: "";
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    top: calc(50% + 1px);
+    height: 6px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15), transparent);
+    filter: blur(1px);
+  }
 
+  /* ---------- Header / nav minima ---------- */
+  header {
+    padding: 28px 0 0;
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brandmark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 26px;
+  }
+  .brandmark img { width: 44px; height: 44px; }
+
+  .lang-switch {
+    display: flex;
+    gap: 2px;
+  }
+  .lang-switch button {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--crease);
+    background: var(--paper-raised);
+    color: var(--ink-soft);
+    padding: 7px 11px 6px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .lang-switch button:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+  .lang-switch button:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+  .lang-switch button + button { border-left: none; }
+  .lang-switch button[aria-pressed="true"] {
+    color: var(--paper-raised);
+    background: var(--ink);
+    border-color: var(--ink);
+    z-index: 1;
+  }
+  .lang-switch button:hover:not([aria-pressed="true"]) {
+    border-color: var(--petrol);
+    color: var(--petrol);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 64px 0 8px;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(34px, 5.4vw, 50px);
+    line-height: 1.06;
+    margin: 14px 0 18px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--petrol);
+  }
+  .hero p.lede {
+    font-size: 17.5px;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0;
+  }
+  .hero-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .hero-art::before {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(74,123,166,0.30), transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-art img {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    filter: drop-shadow(0 18px 26px rgba(0,0,0,0.35));
+  }
+
+  .badge-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 26px;
+    flex-wrap: wrap;
+  }
+  .store-badge-row {
+    margin-top: 20px;
+    padding: 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .store-badge-row img {
+    display: block;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35));
+  }
+  .qr-code {
+    width: 84px;
+    height: 84px;
+    border-radius: 8px;
+    border: 1px solid var(--crease);
+  }
+  .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    border: 1px solid var(--crease);
+    background: var(--paper-raised);
+    padding: 6px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--petrol);
+    display: inline-block;
+  }
+
+  /* ---------- Sezione "come funziona" ---------- */
   section { padding: 8px 0 30px; }
   section h2 {
     font-family: 'Fraunces', serif;
     font-weight: 600;
-    font-size: 22px;
-    margin: 4px 0 20px;
+    font-size: 26px;
+    margin: 4px 0 26px;
   }
+
+  .steps {
+    display: grid;
+    gap: 0;
+    counter-reset: step;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-top: 1px solid var(--crease);
+  }
+  .step:last-child { border-bottom: 1px solid var(--crease); }
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--brass);
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .step h3 {
+    margin: 0 0 4px;
+    font-size: 16.5px;
+    font-weight: 600;
+  }
+  .step p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+  }
+
+  /* ---------- Blocchi di funzione (testo semplice) ---------- */
   .feature-block p {
     color: var(--ink-soft);
     font-size: 15.5px;
     max-width: 62ch;
     margin: 0;
   }
+  .feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 11px;
+  }
+  .feature-list li {
+    padding-left: 20px;
+    position: relative;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+  }
+  .feature-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--brass);
+  }
 
+  /* ---------- Documenti: card con angolo piegato ---------- */
   .doc-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -200,6 +332,7 @@
     transform: translateY(-2px);
     box-shadow: 0 10px 22px rgba(0,0,0,0.35);
   }
+  /* Angolo piegato — dog-ear, eco diretta dell'origami del logo */
   .doc-card::after {
     content: "";
     position: absolute;
@@ -211,6 +344,10 @@
     border-width: 0 22px 22px 0;
     border-color: transparent var(--paper) transparent transparent;
     filter: drop-shadow(-2px 2px 2px rgba(0,0,0,0.25));
+    transition: border-width 0.18s ease;
+  }
+  .doc-card:hover::after {
+    border-width: 0 28px 28px 0;
   }
   .doc-kicker {
     font-family: 'IBM Plex Mono', monospace;
@@ -224,7 +361,7 @@
     margin: 0 0 6px;
     font-family: 'Fraunces', serif;
     font-weight: 600;
-    font-size: 17.5px;
+    font-size: 18.5px;
   }
   .doc-card span.dl {
     font-size: 13.5px;
@@ -234,7 +371,10 @@
     gap: 5px;
   }
 
-  footer { padding: 30px 0 60px; }
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 30px 0 60px;
+  }
   footer .foot-row {
     display: flex;
     justify-content: space-between;
@@ -242,7 +382,11 @@
     flex-wrap: wrap;
     gap: 10px;
   }
-  footer p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+  footer p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
   footer a {
     color: var(--petrol);
     text-decoration: none;
@@ -257,12 +401,18 @@
 
   [data-i18n] { display: none; }
   [data-i18n].active { display: revert; }
+  /* .doc-card è un <a>: "revert" tornerebbe a inline, serve display:block esplicito */
   .doc-card[data-i18n].active { display: block; }
 
   @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; padding-top: 40px; }
+    .hero-art { order: -1; }
+    .hero-art img { width: 128px; height: 128px; }
+    .hero-art::before { width: 160px; height: 160px; }
     .doc-grid { grid-template-columns: 1fr; }
     .nav-row { gap: 12px; }
   }
+
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; }
   }
@@ -274,7 +424,7 @@
   <header>
     <div class="nav-row">
       <div class="brandmark">
-        <img src="logo.png" alt="">
+        <img src="assets/logo.png" alt="">
         <span>SalvadApp!</span>
       </div>
       <div class="lang-switch" role="group" aria-label="Lingua / Language / Idioma">
@@ -286,25 +436,105 @@
   </header>
 
   <div class="hero">
-    <p class="eyebrow active" data-i18n="it">Huawei AppGallery</p>
-    <p class="eyebrow" data-i18n="en">Huawei AppGallery</p>
-    <p class="eyebrow" data-i18n="es">Huawei AppGallery</p>
-    <h1>
-      <span data-i18n="it" class="active">Privacy e Termini</span>
-      <span data-i18n="en">Privacy &amp; Terms</span>
-      <span data-i18n="es">Privacidad y Términos</span>
-    </h1>
-    <p class="lede">
-      <span data-i18n="it" class="active">Questa pagina contiene l'Informativa sulla Privacy e i Termini e Condizioni di SalvadApp! per la versione distribuita su Huawei AppGallery.</span>
-      <span data-i18n="en">This page contains the Privacy Policy and Terms &amp; Conditions of SalvadApp! for the version distributed on Huawei AppGallery.</span>
-      <span data-i18n="es">Esta página contiene la Política de Privacidad y los Términos y Condiciones de SalvadApp! para la versión distribuida en Huawei AppGallery.</span>
-    </p>
-    <span class="badge">
-      <span data-i18n="it" class="active">Nessun servizio di diagnostica crash in questa versione</span>
-      <span data-i18n="en">No crash diagnostics service in this version</span>
-      <span data-i18n="es">Sin servicio de diagnóstico de fallos en esta versión</span>
-    </span>
+    <div>
+      <p class="eyebrow active" data-i18n="it">Un progetto personale</p>
+      <h1>
+        <span data-i18n="it" class="active">Il salvadanaio,<br>piegato <em>a modo tuo.</em></span>
+        <span data-i18n="en">Your piggy bank,<br>folded <em>your way.</em></span>
+        <span data-i18n="es">Tu hucha,<br>plegada <em>a tu manera.</em></span>
+      </h1>
+      <p class="lede">
+        <span data-i18n="it" class="active">SalvadApp! ti aiuta a organizzare i tuoi obiettivi di risparmio, uno per uno — come i segni su un salvadanaio, ma sul telefono.</span>
+        <span data-i18n="en">SalvadApp! helps you organize your savings goals, one at a time — like the marks on a piggy bank, but on your phone.</span>
+        <span data-i18n="es">SalvadApp! te ayuda a organizar tus objetivos de ahorro, uno a uno — como las marcas de una hucha, pero en el móvil.</span>
+      </p>
+      <p class="lede" style="margin-top: 10px; font-size: 15.5px; color: var(--ink-soft);">
+        <span data-i18n="it" class="active">Non è collegata a banche o conti correnti: registri tu stesso, manualmente, quanto metti da parte — come su un salvadanaio vero.</span>
+        <span data-i18n="en">Not connected to any bank or account: you log what you set aside yourself, by hand — just like a real piggy bank.</span>
+        <span data-i18n="es">No está conectada a bancos ni cuentas: registras tú mismo, a mano, lo que apartas — como en una hucha de verdad.</span>
+      </p>
+      <div class="badge-row">
+        <span class="badge">
+          <span data-i18n="it" class="active">Nessun dato lascia il telefono, salvo tua scelta</span>
+          <span data-i18n="en">No data leaves your phone, unless you choose to</span>
+          <span data-i18n="es">Ningún dato sale del móvil, salvo que tú lo decidas</span>
+        </span>
+        <span class="badge">
+          <span data-i18n="it" class="active">Gratuita</span>
+          <span data-i18n="en">Free</span>
+          <span data-i18n="es">Gratuita</span>
+        </span>
+        <span class="badge">
+          <span data-i18n="it" class="active">Senza pubblicità</span>
+          <span data-i18n="en">No ads</span>
+          <span data-i18n="es">Sin publicidad</span>
+        </span>
+      </div>
+
+    </div>
+    <div class="hero-art">
+      <img src="assets/logo.png" alt="Logo SalvadApp!, un salvadanaio origami">
+    </div>
   </div>
+</div>
+
+<div class="fold-divider"></div>
+
+<div class="wrap">
+  <section>
+    <h2>
+      <span data-i18n="it" class="active">Come funziona</span>
+      <span data-i18n="en">How it works</span>
+      <span data-i18n="es">Cómo funciona</span>
+    </h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h3>
+            <span data-i18n="it" class="active">Crea un obiettivo</span>
+            <span data-i18n="en">Create a goal</span>
+            <span data-i18n="es">Crea un objetivo</span>
+          </h3>
+          <p>
+            <span data-i18n="it" class="active">Dai un nome, un importo e — se vuoi — una scadenza. Obiettivi illimitati, sempre gratis.</span>
+            <span data-i18n="en">Give it a name, an amount and — if you like — a deadline. Unlimited goals, always free.</span>
+            <span data-i18n="es">Ponle un nombre, un importe y — si quieres — una fecha límite. Objetivos ilimitados, siempre gratis.</span>
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h3>
+            <span data-i18n="it" class="active">Versa quando vuoi</span>
+            <span data-i18n="en">Add money whenever</span>
+            <span data-i18n="es">Aporta cuando quieras</span>
+          </h3>
+          <p>
+            <span data-i18n="it" class="active">Registra ogni versamento, anche piccolo. L'app tiene il conto e mostra quanto manca.</span>
+            <span data-i18n="en">Log every deposit, even small ones. The app keeps track and shows what's left.</span>
+            <span data-i18n="es">Registra cada aportación, incluso pequeña. La app lleva la cuenta y muestra lo que falta.</span>
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h3>
+            <span data-i18n="it" class="active">Rompi il salvadanaio</span>
+            <span data-i18n="en">Break the piggy bank</span>
+            <span data-i18n="es">Rompe la hucha</span>
+          </h3>
+          <p>
+            <span data-i18n="it" class="active">Obiettivo raggiunto? Archivialo e concediti quello per cui hai risparmiato.</span>
+            <span data-i18n="en">Goal reached? Archive it and treat yourself to what you saved for.</span>
+            <span data-i18n="es">¿Objetivo alcanzado? Archívalo y date el capricho por el que ahorraste.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 <div class="fold-divider"></div>
@@ -312,14 +542,114 @@
 <div class="wrap">
   <section class="feature-block">
     <h2>
-      <span data-i18n="it" class="active">La tua privacy</span>
-      <span data-i18n="en">Your privacy</span>
-      <span data-i18n="es">Tu privacidad</span>
+      <span data-i18n="it" class="active">Guarda crescere i tuoi risparmi</span>
+      <span data-i18n="en">Watch your savings grow</span>
+      <span data-i18n="es">Mira crecer tus ahorros</span>
     </h2>
     <p>
-      <span data-i18n="it" class="active">SalvadApp! funziona interamente offline. Nessun account da creare, nessun dato inviato a server esterni, nessuna pubblicità, nessun tracciamento del tuo comportamento. In questa versione distribuita su Huawei AppGallery non è inoltre presente alcun servizio di diagnostica automatica dei crash, né di Huawei né di terze parti.</span>
-      <span data-i18n="en">SalvadApp! works entirely offline. No account to create, no data sent to external servers, no ads, no tracking of your behavior. This version, distributed on Huawei AppGallery, also does not include any automatic crash diagnostics service, whether from Huawei or a third party.</span>
-      <span data-i18n="es">SalvadApp! funciona completamente sin conexión. Sin cuenta que crear, sin datos enviados a servidores externos, sin publicidad, sin seguimiento de tu comportamiento. Esta versión, distribuida en Huawei AppGallery, tampoco incluye ningún servicio de diagnóstico automático de fallos, ni de Huawei ni de terceros.</span>
+      <span data-i18n="it" class="active">Ogni versamento è un pezzo di puzzle che si scopre: un'immagine nascosta che prende forma man mano che ti avvicini al traguardo. Scegli tra cinque stili di avanzamento — anello, barra, semicerchio, liquido animato, segmenti — e quattro modi di leggere l'andamento: a linea, a istogramma, a calendario o a torta, con un indicatore a colpo d'occhio se sei in linea con i tempi.</span>
+      <span data-i18n="en">Every deposit reveals a piece of the puzzle: a hidden image that takes shape as you get closer to your goal. Choose from five progress styles — ring, bar, half-circle, animated liquid, segments — and four ways to read your trend: line, histogram, calendar or pie chart, with an at-a-glance indicator showing whether you're on track.</span>
+      <span data-i18n="es">Cada aportación revela una pieza del puzzle: una imagen oculta que va tomando forma a medida que te acercas a la meta. Elige entre cinco estilos de progreso — anillo, barra, semicírculo, líquido animado, segmentos — y cuatro formas de leer tu evolución: línea, histograma, calendario o tarta, con un indicador a simple vista de si vas al ritmo previsto.</span>
+    </p>
+  </section>
+</div>
+
+<div class="fold-divider"></div>
+
+<div class="wrap">
+  <section class="feature-block">
+    <h2>
+      <span data-i18n="it" class="active">Non dimenticare un versamento</span>
+      <span data-i18n="en">Never miss a deposit</span>
+      <span data-i18n="es">No olvides una aportación</span>
+    </h2>
+    <p>
+      <span data-i18n="it" class="active">Attiva il promemoria per i tuoi versamenti periodici: una notifica ti avvisa alla scadenza. Se un giorno rispondi con calma — o te ne dimentichi — tutto resta in sospeso negli Arretrati, pronto per essere confermato quando vuoi, senza perdere nulla.</span>
+      <span data-i18n="en">Turn on reminders for your recurring deposits: a notification alerts you at each due date. If you respond later — or forget — nothing is lost: it stays pending in Overdue, ready to confirm whenever you like.</span>
+      <span data-i18n="es">Activa el recordatorio para tus aportaciones periódicas: una notificación te avisa en cada vencimiento. Si respondes con calma — o se te olvida — nada se pierde: queda pendiente en Atrasados, listo para confirmar cuando quieras.</span>
+    </p>
+  </section>
+</div>
+
+<div class="fold-divider"></div>
+
+<div class="wrap">
+  <section class="feature-block">
+    <h2>
+      <span data-i18n="it" class="active">Un'idea per i più piccoli</span>
+      <span data-i18n="en">An idea for the little ones</span>
+      <span data-i18n="es">Una idea para los más pequeños</span>
+    </h2>
+    <p>
+      <span data-i18n="it" class="active">SalvadApp! è utile anche per insegnare ai bambini il valore del risparmio: ogni volta che mettono una moneta nel salvadanaio vero, registrano lo stesso importo nell'app. Vedere il puzzle completarsi rende tangibile il progresso — e il giorno in cui l'obiettivo è raggiunto, si rompe davvero il salvadanaio.</span>
+      <span data-i18n="en">SalvadApp! is also great for teaching kids the value of saving: every time they drop a coin in the real piggy bank, they log the same amount in the app. Watching the puzzle come together makes progress tangible — and the day the goal is reached, the piggy bank really does get broken.</span>
+      <span data-i18n="es">SalvadApp! también es útil para enseñar a los niños el valor del ahorro: cada vez que meten una moneda en la hucha real, registran el mismo importe en la app. Ver el puzzle completarse hace tangible el progreso — y el día en que se alcanza el objetivo, la hucha se rompe de verdad.</span>
+    </p>
+  </section>
+</div>
+
+<div class="fold-divider"></div>
+
+<div class="wrap">
+  <section class="feature-block">
+    <h2>
+      <span data-i18n="it" class="active">Cosa trovi dentro</span>
+      <span data-i18n="en">What's inside</span>
+      <span data-i18n="es">Qué encontrarás</span>
+    </h2>
+    <ul class="feature-list">
+      <li>
+        <span data-i18n="it" class="active">Storico completo di ogni obiettivo, con cronologia dei cicli passati e note personali</span>
+        <span data-i18n="en">Full history for every goal, with past cycles and personal notes</span>
+        <span data-i18n="es">Historial completo de cada objetivo, con ciclos pasados y notas personales</span>
+      </li>
+      <li>
+        <span data-i18n="it" class="active">Foto opzionali per riconoscere a colpo d'occhio le tue schede</span>
+        <span data-i18n="en">Optional photos to recognize your goals at a glance</span>
+        <span data-i18n="es">Fotos opcionales para reconocer tus fichas de un vistazo</span>
+      </li>
+      <li>
+        <span data-i18n="it" class="active">Occhio privacy: nascondi le cifre con un tocco, utile sui mezzi pubblici</span>
+        <span data-i18n="en">Privacy eye: hide the numbers with a tap, handy on public transport</span>
+        <span data-i18n="es">Ojo de privacidad: oculta las cifras con un toque, útil en el transporte público</span>
+      </li>
+      <li>
+        <span data-i18n="it" class="active">Cassaforte IBAN protetta da impronta digitale o riconoscimento del volto</span>
+        <span data-i18n="en">IBAN vault protected by fingerprint or face recognition</span>
+        <span data-i18n="es">Caja fuerte IBAN protegida por huella digital o reconocimiento facial</span>
+      </li>
+      <li>
+        <span data-i18n="it" class="active">Backup automatico locale, con possibilità di ripristino in un tap</span>
+        <span data-i18n="en">Automatic local backup, restore in one tap</span>
+        <span data-i18n="es">Copia de seguridad local automática, con restauración en un toque</span>
+      </li>
+      <li>
+        <span data-i18n="it" class="active">Cinque colori d'accento e due stili di card, a tua scelta</span>
+        <span data-i18n="en">Five accent colors and two card styles, your choice</span>
+        <span data-i18n="es">Cinco colores de acento y dos estilos de tarjeta, a tu elección</span>
+      </li>
+      <li>
+        <span data-i18n="it" class="active">Disponibile in italiano, inglese e spagnolo</span>
+        <span data-i18n="en">Available in Italian, English and Spanish</span>
+        <span data-i18n="es">Disponible en italiano, inglés y español</span>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<div class="fold-divider"></div>
+
+<div class="wrap">
+  <section class="feature-block">
+    <h2>
+      <span data-i18n="it" class="active">La tua privacy viene prima</span>
+      <span data-i18n="en">Your privacy comes first</span>
+      <span data-i18n="es">Tu privacidad es lo primero</span>
+    </h2>
+    <p>
+      <span data-i18n="it" class="active">SalvadApp! funziona interamente offline. Nessun account da creare, nessun dato inviato a server esterni, nessuna pubblicità, nessun tracciamento del tuo comportamento. Anche le notifiche e i promemoria vengono pianificati interamente sul tuo telefono, senza alcuna trasmissione dei tuoi dati. Questa versione non utilizza inoltre alcun servizio di diagnostica automatica dei crash.</span>
+      <span data-i18n="en">SalvadApp! works entirely offline. No account to create, no data sent to external servers, no ads, no tracking of your behavior. Even notifications and reminders are scheduled entirely on your phone, with no transmission of your data. This version also does not use any automatic crash diagnostics service.</span>
+      <span data-i18n="es">SalvadApp! funciona completamente sin conexión. Sin cuenta que crear, sin datos enviados a servidores externos, sin publicidad, sin seguimiento de tu comportamiento. Incluso las notificaciones y recordatorios se programan enteramente en tu teléfono, sin transmisión alguna de tus datos. Esta versión tampoco utiliza ningún servicio de diagnóstico automático de fallos.</span>
     </p>
   </section>
 </div>
@@ -334,32 +664,32 @@
       <span data-i18n="es">Documentos</span>
     </h2>
     <div class="doc-grid">
-      <a class="doc-card active" data-i18n="it" href="privacy_it.pdf" target="_blank" rel="noopener">
+      <a class="doc-card active" data-i18n="it" href="assets/privacy_it.pdf" target="_blank" rel="noopener">
         <p class="doc-kicker">PDF</p>
         <h3>Informativa sulla Privacy</h3>
         <span class="dl">↓ Scarica il PDF</span>
       </a>
-      <a class="doc-card" data-i18n="en" href="privacy_en.pdf" target="_blank" rel="noopener">
+      <a class="doc-card" data-i18n="en" href="assets/privacy_en.pdf" target="_blank" rel="noopener">
         <p class="doc-kicker">PDF</p>
         <h3>Privacy Policy</h3>
         <span class="dl">↓ Download PDF</span>
       </a>
-      <a class="doc-card" data-i18n="es" href="privacy_es.pdf" target="_blank" rel="noopener">
+      <a class="doc-card" data-i18n="es" href="assets/privacy_es.pdf" target="_blank" rel="noopener">
         <p class="doc-kicker">PDF</p>
         <h3>Política de Privacidad</h3>
         <span class="dl">↓ Descargar PDF</span>
       </a>
-      <a class="doc-card active" data-i18n="it" href="termini_it.pdf" target="_blank" rel="noopener">
+      <a class="doc-card active" data-i18n="it" href="assets/termini_it.pdf" target="_blank" rel="noopener">
         <p class="doc-kicker">PDF</p>
         <h3>Termini e Condizioni</h3>
         <span class="dl">↓ Scarica il PDF</span>
       </a>
-      <a class="doc-card" data-i18n="en" href="termini_en.pdf" target="_blank" rel="noopener">
+      <a class="doc-card" data-i18n="en" href="assets/termini_en.pdf" target="_blank" rel="noopener">
         <p class="doc-kicker">PDF</p>
         <h3>Terms &amp; Conditions</h3>
         <span class="dl">↓ Download PDF</span>
       </a>
-      <a class="doc-card" data-i18n="es" href="termini_es.pdf" target="_blank" rel="noopener">
+      <a class="doc-card" data-i18n="es" href="assets/termini_es.pdf" target="_blank" rel="noopener">
         <p class="doc-kicker">PDF</p>
         <h3>Términos y Condiciones</h3>
         <span class="dl">↓ Descargar PDF</span>
