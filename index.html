@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="it" data-lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalvadApp! — Privacy e Termini (Huawei AppGallery)</title>
+<meta name="description" content="Informativa sulla Privacy e Termini e Condizioni di SalvadApp! per la versione distribuita su Huawei AppGallery.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Stessa palette blu metallizzata del sito principale SalvadApp!,
+       per coerenza di marchio tra le due proprietà web. */
+    --blu-light: #4A7BA6;
+    --blu-mid: #1D3E5C;
+    --blu-dark: #11263B;
+    --silver: #CFD1D8;
+    --silver-dim: #8C8E97;
+
+    --paper: var(--blu-mid);
+    --paper-raised: var(--blu-light);
+    --ink: var(--silver);
+    --petrol: #BFE0F5;
+    --brass: #BFE0F5;
+    --crease: rgba(207,209,216,0.3);
+    --ink-soft: #C9D6DF;
+    --radius: 3px;
+    --max-w: 720px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.02) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.025) 0, transparent 45%);
+    z-index: 0;
+  }
+
+  .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  header { padding: 28px 0 0; }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brandmark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+  }
+  .brandmark img { width: 38px; height: 38px; }
+
+  .lang-switch { display: flex; gap: 2px; }
+  .lang-switch button {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--crease);
+    background: var(--paper-raised);
+    color: var(--ink-soft);
+    padding: 7px 11px 6px;
+    cursor: pointer;
+    position: relative;
+  }
+  .lang-switch button:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+  .lang-switch button:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+  .lang-switch button + button { border-left: none; }
+  .lang-switch button[aria-pressed="true"] {
+    color: var(--paper-raised);
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .lang-switch button:hover:not([aria-pressed="true"]) {
+    border-color: var(--petrol);
+    color: var(--petrol);
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    font-weight: 500;
+  }
+
+  .hero { padding: 48px 0 8px; }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.1;
+    margin: 14px 0 14px;
+  }
+  .hero p.lede {
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    border: 1px solid var(--crease);
+    background: var(--paper-raised);
+    padding: 6px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--petrol);
+    display: inline-block;
+  }
+
+  .fold-divider {
+    position: relative;
+    height: 46px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .fold-divider::before {
+    content: "";
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    top: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--crease) 12%, var(--crease) 88%, transparent);
+  }
+
+  section { padding: 8px 0 30px; }
+  section h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 4px 0 20px;
+  }
+  .feature-block p {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  .doc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .doc-card {
+    position: relative;
+    background: var(--paper-raised);
+    border: 1px solid var(--crease);
+    border-radius: var(--radius);
+    padding: 22px 20px 20px;
+    text-decoration: none;
+    color: var(--ink);
+    display: block;
+    overflow: hidden;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .doc-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+  }
+  .doc-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 22px 22px 0;
+    border-color: transparent var(--paper) transparent transparent;
+    filter: drop-shadow(-2px 2px 2px rgba(0,0,0,0.25));
+  }
+  .doc-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--petrol);
+    margin: 0 0 8px;
+  }
+  .doc-card h3 {
+    margin: 0 0 6px;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 17.5px;
+  }
+  .doc-card span.dl {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  footer { padding: 30px 0 60px; }
+  footer .foot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  footer p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+  footer a {
+    color: var(--petrol);
+    text-decoration: none;
+    border-bottom: 1px solid var(--crease);
+  }
+  footer a:hover { border-color: var(--petrol); }
+  .foot-mono {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--silver-dim);
+  }
+
+  [data-i18n] { display: none; }
+  [data-i18n].active { display: revert; }
+  .doc-card[data-i18n].active { display: block; }
+
+  @media (max-width: 640px) {
+    .doc-grid { grid-template-columns: 1fr; }
+    .nav-row { gap: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="nav-row">
+      <div class="brandmark">
+        <img src="assets/logo.png" alt="">
+        <span>SalvadApp!</span>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Lingua / Language / Idioma">
+        <button data-set-lang="it" aria-pressed="true">IT</button>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+        <button data-set-lang="es" aria-pressed="false">ES</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <p class="eyebrow active" data-i18n="it">Huawei AppGallery</p>
+    <p class="eyebrow" data-i18n="en">Huawei AppGallery</p>
+    <p class="eyebrow" data-i18n="es">Huawei AppGallery</p>
+    <h1>
+      <span data-i18n="it" class="active">Privacy e Termini</span>
+      <span data-i18n="en">Privacy &amp; Terms</span>
+      <span data-i18n="es">Privacidad y Términos</span>
+    </h1>
+    <p class="lede">
+      <span data-i18n="it" class="active">Questa pagina contiene l'Informativa sulla Privacy e i Termini e Condizioni di SalvadApp! per la versione distribuita su Huawei AppGallery.</span>
+      <span data-i18n="en">This page contains the Privacy Policy and Terms &amp; Conditions of SalvadApp! for the version distributed on Huawei AppGallery.</span>
+      <span data-i18n="es">Esta página contiene la Política de Privacidad y los Términos y Condiciones de SalvadApp! para la versión distribuida en Huawei AppGallery.</span>
+    </p>
+    <span class="badge">
+      <span data-i18n="it" class="active">Nessun servizio di diagnostica crash in questa versione</span>
+      <span data-i18n="en">No crash diagnostics service in this version</span>
+      <span data-i18n="es">Sin servicio de diagnóstico de fallos en esta versión</span>
+    </span>
+  </div>
+</div>
+
+<div class="fold-divider"></div>
+
+<div class="wrap">
+  <section class="feature-block">
+    <h2>
+      <span data-i18n="it" class="active">La tua privacy</span>
+      <span data-i18n="en">Your privacy</span>
+      <span data-i18n="es">Tu privacidad</span>
+    </h2>
+    <p>
+      <span data-i18n="it" class="active">SalvadApp! funziona interamente offline. Nessun account da creare, nessun dato inviato a server esterni, nessuna pubblicità, nessun tracciamento del tuo comportamento. In questa versione distribuita su Huawei AppGallery non è inoltre presente alcun servizio di diagnostica automatica dei crash, né di Huawei né di terze parti.</span>
+      <span data-i18n="en">SalvadApp! works entirely offline. No account to create, no data sent to external servers, no ads, no tracking of your behavior. This version, distributed on Huawei AppGallery, also does not include any automatic crash diagnostics service, whether from Huawei or a third party.</span>
+      <span data-i18n="es">SalvadApp! funciona completamente sin conexión. Sin cuenta que crear, sin datos enviados a servidores externos, sin publicidad, sin seguimiento de tu comportamiento. Esta versión, distribuida en Huawei AppGallery, tampoco incluye ningún servicio de diagnóstico automático de fallos, ni de Huawei ni de terceros.</span>
+    </p>
+  </section>
+</div>
+
+<div class="fold-divider"></div>
+
+<div class="wrap">
+  <section>
+    <h2>
+      <span data-i18n="it" class="active">Documenti</span>
+      <span data-i18n="en">Documents</span>
+      <span data-i18n="es">Documentos</span>
+    </h2>
+    <div class="doc-grid">
+      <a class="doc-card active" data-i18n="it" href="assets/privacy_it.pdf" target="_blank" rel="noopener">
+        <p class="doc-kicker">PDF</p>
+        <h3>Informativa sulla Privacy</h3>
+        <span class="dl">↓ Scarica il PDF</span>
+      </a>
+      <a class="doc-card" data-i18n="en" href="assets/privacy_en.pdf" target="_blank" rel="noopener">
+        <p class="doc-kicker">PDF</p>
+        <h3>Privacy Policy</h3>
+        <span class="dl">↓ Download PDF</span>
+      </a>
+      <a class="doc-card" data-i18n="es" href="assets/privacy_es.pdf" target="_blank" rel="noopener">
+        <p class="doc-kicker">PDF</p>
+        <h3>Política de Privacidad</h3>
+        <span class="dl">↓ Descargar PDF</span>
+      </a>
+      <a class="doc-card active" data-i18n="it" href="assets/termini_it.pdf" target="_blank" rel="noopener">
+        <p class="doc-kicker">PDF</p>
+        <h3>Termini e Condizioni</h3>
+        <span class="dl">↓ Scarica il PDF</span>
+      </a>
+      <a class="doc-card" data-i18n="en" href="assets/termini_en.pdf" target="_blank" rel="noopener">
+        <p class="doc-kicker">PDF</p>
+        <h3>Terms &amp; Conditions</h3>
+        <span class="dl">↓ Download PDF</span>
+      </a>
+      <a class="doc-card" data-i18n="es" href="assets/termini_es.pdf" target="_blank" rel="noopener">
+        <p class="doc-kicker">PDF</p>
+        <h3>Términos y Condiciones</h3>
+        <span class="dl">↓ Descargar PDF</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<div class="fold-divider"></div>
+
+<div class="wrap">
+  <footer>
+    <div class="foot-row">
+      <p>
+        <span data-i18n="it" class="active">Sviluppato da AVLAM. Scrivi a <a href="mailto:sviluppo.app.am@gmail.com">sviluppo.app.am@gmail.com</a></span>
+        <span data-i18n="en">Developed by AVLAM. Write to <a href="mailto:sviluppo.app.am@gmail.com">sviluppo.app.am@gmail.com</a></span>
+        <span data-i18n="es">Desarrollado por AVLAM. Escribe a <a href="mailto:sviluppo.app.am@gmail.com">sviluppo.app.am@gmail.com</a></span>
+      </p>
+      <p class="foot-mono">© 2026 SalvadApp!</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('[data-set-lang]');
+    var elements = document.querySelectorAll('[data-i18n]');
+
+    function setLang(lang) {
+      elements.forEach(function (el) {
+        el.classList.toggle('active', el.getAttribute('data-i18n') === lang);
+      });
+      buttons.forEach(function (btn) {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+      });
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+      try { localStorage.setItem('salvadapp-lang', lang); } catch (e) {}
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setLang(btn.getAttribute('data-set-lang'));
+      });
+    });
+
+    var saved = null;
+    try { saved = localStorage.getItem('salvadapp-lang'); } catch (e) {}
+    if (saved && ['it', 'en', 'es'].indexOf(saved) !== -1) {
+      setLang(saved);
+    }
+  })();
+</script>
+
+</body>
+</html>
